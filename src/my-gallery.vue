@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="wrapper">
-    <div class="card" v-for="item in cards">
+    <div class="card" v-for="(item, id) in cards">
       <!-- <img class="image" :src="item.img" alt="asd"> -->
-      <div class="image" :style="{background: url('{{item.img}}')}"></div>
+      <div class="image " :style='{ backgroundImage: `url(${item.img})`}'></div>
       <div class="text">{{item.text}}
       </div>
     </div>
@@ -35,18 +35,30 @@ export default {
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 5vh;
     width: 80%;
-    margin-left: 10%;
-    justify-items: center;
-    align-content: space-around;
-    height: 100vh;
+    margin: 20px auto 20px 10%;
+  }
+  .card{
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
   }
   .image{
-    grid-area: image;
-    width: 30vh;
-    height: 20vh;
+    position: relative;
+    width: 100%;
+    height: 30vh;
     background: #da85aa;
+    background-size: cover;
+    background-position: center;
+    transition: opacity, transform .5s;
+  }
+  .card:hover .image{
+    transform: translateY(2px);
+    opacity: .8;
   }
   .text{
-    grid-area: text;
+    display: grid;
+    font-family: cursive;
+    height: 18vh;
+    width: 90%;
+    margin-left: 5%;
+    align-items: center;
   }
 </style>
