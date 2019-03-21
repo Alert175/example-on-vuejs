@@ -1,31 +1,23 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<template lang="html">
+  <div class="wrapper">
+    <my-header></my-header>
+    <!-- <my-content></my-content> -->
+    <my-gallery></my-gallery>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import my_header from './my-header.vue'
+//import my_content from './my-content.vue'
+import my_gallery from './my-gallery.vue'
+export default {
+    components:{
+        'my-header': my_header,
+        // 'my-content': my_content,
+        'my-gallery': my_gallery
+    }
 }
-#nav {
-  padding: 30px;
-}
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="css">
 </style>
